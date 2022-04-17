@@ -39,9 +39,9 @@ NTSTATUS TestPsResumeProcess(ULONG pid)
 	pCurrentEprocess = GetEprocessByPid((HANDLE)pid);
 	if (pCurrentEprocess != NULL)
 	{
-		PsSuspendProcess(pCurrentEprocess);
+		PsResumeProcess(pCurrentEprocess);
 		status = STATUS_SUCCESS;
-		DbgPrint("挂起进程成功\r\n");
+		DbgPrint("继续运行进程成功\r\n");
 		ObDereferenceObject(pCurrentEprocess);
 	}
 	return status;
